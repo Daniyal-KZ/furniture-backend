@@ -30,4 +30,11 @@ public class MaterialController {
     public Material addMaterial(@RequestBody Material material) {
         return materialRepository.save(material);
     }
+
+    @PostMapping("/batch")
+    public List<Material> addMaterials(@RequestBody List<Material> materials) {
+        return materialRepository.saveAll(materials);
+    }
+
+
 }

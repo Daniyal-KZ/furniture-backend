@@ -1,9 +1,6 @@
 package com.daniyal.furniturebackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Material {
@@ -14,7 +11,10 @@ public class Material {
     private String type;
     private String unit;
     private double price;
-
+    @Column(name = "service_price") // явно указать
+    private Double servicePrice;
+    private String imageUrl;
+    // Геттеры и сеттеры
     public Long getId() {
         return id;
     }
@@ -53,5 +53,21 @@ public class Material {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Double getServicePrice() {
+        return servicePrice;
+    }
+
+    public void setServicePrice(Double servicePrice) {
+        this.servicePrice = servicePrice;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
